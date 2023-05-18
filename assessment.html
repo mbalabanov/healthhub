@@ -69,23 +69,54 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="row my-4 border-bottom">
-        <div class="col-2">
-          <a href="index.html"
-            ><img src="img/healthub-logo.png" class="img-fluid" alt="HealthHub"
-          /></a>
-        </div>
-        <div class="col-10 text-end pb-2">
-          Logged in as:
-          <a href="#" class="btn btn-secondary btn-sm">Dr. G. Horvath</a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom mb-4">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="index.html"
+          ><img
+            src="img/healthub-logo.png"
+            class="pe-4"
+            height="24px"
+            alt="HealthHub"
+        /></a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="assessment.html"
+                >New Assessment</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="statistics.html">CT Statistics</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a class="btn btn-sm btn-outline-secondary" href="#"
+              >Logged in as: Dr. G. Horvath</a
+            >
+          </div>
         </div>
       </div>
+    </nav>
+    <div class="container">
       <div class="row">
         <div class="col">
           <div class="card p-4 text-center bg-light">
             <h2>New CT Scan Assessment</h2>
-            <p>
+            <p id="noCtScan">
               <a href="index.html" class="btn btn-danger"
                 >No CT Scan Necessary</a
               >
@@ -94,11 +125,30 @@
               The patient's data is necessary for an assessment of their risk
               score.
             </p>
-            <p>
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="patientSSNumber"
+                    >Patient's Social Security Number:</span
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                  />
+                </div>
+              </div>
+            </div>
+            <p id="dataSource">
               <a href="#" onclick="showQuestions(1)" class="btn btn-primary"
                 >Enter Data Manually</a
               >
-              <a href="#" onclick="showPulled()" class="btn btn-primary"
+              <a
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#noPublicData"
+                class="btn btn-success"
                 >Pull Data from Social Security</a
               >
             </p>
@@ -113,20 +163,16 @@
                 </div>
               </div>
               <div class="row">
+                <div class="div-12">
+                  <div class="alert alert-warning">
+                    These are only example questions.
+                  </div>
+                </div>
+              </div>
+              <div class="row">
                 <div class="col-6">
                   <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="patientName">Name:</span>
-                    <input
-                      type="text"
-                      class="form-control"
-                      aria-label="Sizing example input"
-                      aria-describedby="inputGroup-sizing-sm"
-                    />
-                  </div>
-                  <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="patientSSNumber"
-                      >Social Security Number:</span
-                    >
                     <input
                       type="text"
                       class="form-control"
@@ -338,6 +384,13 @@
                 </div>
               </div>
               <div class="row">
+                <div class="div-12">
+                  <div class="alert alert-warning">
+                    These are only example questions.
+                  </div>
+                </div>
+              </div>
+              <div class="row">
                 <div class="col-6">
                   <h4>
                     How many first degree relatives (parents, siblings) have had
@@ -528,6 +581,13 @@
               <div class="row">
                 <div class="col-12">
                   <h2>Patient Risk Result</h2>
+                  <div class="row">
+                    <div class="col-12 text-center mt-4">
+                      <h3 class="badge text-bg-success">
+                        AI Assistant is Processing Data
+                      </h3>
+                    </div>
+                  </div>
                   <div class="circle-wrap">
                     <div class="circle">
                       <div class="mask full">
@@ -548,14 +608,123 @@
               style="display: none"
             >
               <div class="row">
-                <div class="col-12">
+                <div class="col-12 text-center">
                   <h2>Patient Risk Result</h2>
-                  <h1>
-                    <span class="badge bg-danger">High Risk Score: 9</span>
-                  </h1>
+                  <h3>
+                    <span class="badge bg-danger">High Risk!</span>
+                  </h3>
+                  <h3>
+                    The Risk Score of this patient is:
+                    <span class="badge bg-danger">9</span>
+                  </h3>
+                  <p>
+                    It is highly recommended that this patient is checked
+                    thoroughly with a <strong>CT Scan</strong>
+                  </p>
+                  <div class="text-start alert alert-warning">
+                    <h4>Reasons for Urgency</h4>
+                    <ul>
+                      <li>Gallia est omnis divisa in partes tres, quarum.</li>
+                      <li>
+                        Excepteur sint obcaecat cupiditat non proident culpa.
+                      </li>
+                      <li>
+                        Ut enim ad minim veniam, quis nostrud exercitation.
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="text-start alert alert-danger">
+                    <p>
+                      This AI generated risk score is not a replacement for the
+                      medical assessment of a healthcare professional.
+                    </p>
+                  </div>
+                  <h2>Doctor's Assessment</h2>
+                  <div class="mb-3">
+                    <div class="mb-3">
+                      <label for="basic-url" class="form-label"
+                        >Change Risk Score</label
+                      >
+                      <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3"
+                          >Changed Risk Score</span
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="basic-url"
+                          value="9"
+                          aria-describedby="basic-addon3 basic-addon4"
+                        />
+                      </div>
+                      <div class="form-text" id="basic-addon4">
+                        The assessment is digitally signed with
+                        <span class="badge text-bg-warning">Dr. G. Horvath</span
+                        >Always provide a reason when you change the risk score
+                      </div>
+                    </div>
+                    <label for="exampleFormControlTextarea1" class="form-label"
+                      >Reasons:</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-end">
+                  <a class="btn btn-outline-primary" href="scanner-map.html">
+                    Find Available CT Scanners
+                  </a>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="noPublicData"
+      tabindex="-1"
+      aria-labelledby="noPublicDataLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="noPublicDataLabel">
+              No Data Available for this Patient
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              There is no data available for this patient in the public social
+              security system.
+            </p>
+            <p>
+              Possible reasons are: the patient has not approved data sharing or
+              there is a technical issue.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
@@ -568,6 +737,8 @@
             "questions" + (questionsNumber - 1)
           ).style.display = "none";
         }
+        document.getElementById("noCtScan").style.display = "none";
+        document.getElementById("dataSource").style.display = "none";
         document.getElementById("questions" + questionsNumber).style.display =
           "block";
       }
