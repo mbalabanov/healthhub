@@ -90,32 +90,74 @@
               </div>
             </div>
           </div>
-          <div class="row" id="mapArea">
+          <div class="row" id="mapArea" style="display: none">
             <div class="col-12">
+              <div class="alert alert-success my-4">
+                <h2>Next Available Appointments:</h2>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    International Medical Science Center, 16.06.2023: 8:30–12:30
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault2"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Károlyi Sándor Hospital, 12.07.2023: 10:30–14:30
+                  </label>
+                </div>
+              </div>
+              <p class="text-end">
+                <a
+                  href="#"
+                  class="btn btn-outline-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#confirmReservation"
+                  >Reserve CT Scan</a
+                >
+                <a
+                  href="#"
+                  class="btn btn-outline-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#emergencyRequest"
+                  >Priority Request</a
+                >
+              </p>
               <img
-                src="img/scanner-map.png"
+                src="img/scanner-map-marked.png"
                 alt="Available Scanners"
-                class="img-fluid"
-                style="display: none"
+                class="img-fluid rounded mb-4"
               />
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Modal -->
     <div
       class="modal fade"
-      id="noPublicData"
+      id="confirmReservation"
       tabindex="-1"
-      aria-labelledby="noPublicDataLabel"
+      aria-labelledby="confirmReservationLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="noPublicDataLabel">
-              No Data Available for this Patient
+            <h1 class="modal-title fs-5" id="confirmReservationLabel">
+              Reservation for CT Scan Confirmed
             </h1>
             <button
               type="button"
@@ -126,46 +168,66 @@
           </div>
           <div class="modal-body">
             <p>
-              There is no data available for this patient in the public social
-              security system.
-            </p>
-            <p>
-              Possible reasons are: the patient has not approved data sharing or
-              there is a technical issue.
+              Your reservation for a CT scan at the International Medical
+              Science Center on 16.06.2023 at 8:30 has been confirmed.
             </p>
           </div>
           <div class="modal-footer">
+            <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </a>
+            <a type="button" class="btn btn-primary" href="appointments.html">
+              Open Calendar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="emergencyRequest"
+      tabindex="-1"
+      aria-labelledby="emergencyRequestLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="emergencyRequestLabel">
+              Priority Request for CT Scan
+            </h1>
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn-close"
               data-bs-dismiss="modal"
-            >
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Your Priority Request for a CT scan at the International Medical
+              Science Center has been submitted.
+            </p>
+            <p>
+              It needs to be reviewed by the staff at the International Medical
+              Science Center. You will be notified about the result of the
+              review.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-      function showQuestions(questionsNumber) {
-        if (questionsNumber > 1) {
-          document.getElementById(
-            "questions" + (questionsNumber - 1)
-          ).style.display = "none";
-        }
-        document.getElementById("noCtScan").style.display = "none";
-        document.getElementById("dataSource").style.display = "none";
-        document.getElementById("questions" + questionsNumber).style.display =
-          "block";
-      }
-      function showRisk() {
-        document.getElementById("questions2").style.display = "none";
-        document.getElementById("riskProgress").style.display = "block";
-        setTimeout(function () {
-          document.getElementById("riskProgress").style.display = "none";
-          document.getElementById("riskResult").style.display = "block";
-        }, 3000);
+      function showMap() {
+        document.getElementById("mapArea").style.display = "block";
       }
     </script>
   </body>
