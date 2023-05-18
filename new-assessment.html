@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthHub</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row my-4 border-bottom">
+        <div class="col-2">
+          <img src="img/healthub-logo.png" class="img-fluid" alt="HealthHub" />
+        </div>
+        <div class="col-10 text-end pb-2">
+          Logged in as:
+          <a href="#" class="btn btn-secondary btn-sm">Dr. G. Horvath</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card p-4 text-center bg-light">
+            <h2>New CT Scan Assessment</h2>
+            <p>
+              <a href="index.html" class="btn btn-danger"
+                >No CT Scan Necessary</a
+              >
+            </p>
+            <p>
+              The patient's data is necessary for an assessment of their risk
+              score.
+            </p>
+            <p>
+              <a href="#" onclick="showManual()" class="btn btn-primary"
+                >Enter Data Manually</a
+              >
+              <a href="#" onclick="showPulled()" class="btn btn-primary"
+                >Pull Data from Social Security</a
+              >
+            </p>
+            <div class="card p-4 text-start">
+              <div class="row">
+                <div class="col-12">
+                  <h2>Patient Data</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="patientName">Name:</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="patientSSNumber"
+                      >Social Security Number:</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="patientAge">Age:</span>
+                    <input
+                      type="number"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="patientHeight"
+                      >Height in CM:</span
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="patientWeight"
+                      >Weight in KG:</span
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="patientStreet"
+                      >Street:</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <h4 class="mt-2">Gender:</h4>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Female
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault2"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault2"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Other
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <h4>Smoking:</h4>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="smoking0"
+                      id="smoking0"
+                    />
+                    <label class="form-check-label" for="smoking0">
+                      Never smoked
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="smoking1"
+                      id="smoking1"
+                    />
+                    <label class="form-check-label" for="smoking1">
+                      Quit smoking (more than 1 year)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="smoking2"
+                      id="smoking2"
+                    />
+                    <label class="form-check-label" for="smoking2">
+                      Quit smoking (less than 1 year)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="smoking3"
+                      id="smoking3"
+                    />
+                    <label class="form-check-label" for="smoking3">
+                      Smoked within 30 days
+                    </label>
+                  </div>
+                  <h4 class="mt-2">Last Medical Checkup:</h4>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Less than 1 year ago
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault2"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      1 to 2 years ago
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault2"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      More than 2 years ago
+                    </label>
+                  </div>
+
+                  <h4 class="mt-2">Minutes of weekly exercise:</h4>
+                  <div class="row">
+                    <div class="col">
+                      <label for="customRange1" class="form-label"
+                        >Moderate activity</label
+                      >
+                      <input
+                        type="range"
+                        class="form-range"
+                        id="moderateRange"
+                      />
+                    </div>
+                    <div class="col">
+                      <label for="customRange1" class="form-label"
+                        >Vigorous activity</label
+                      >
+                      <input
+                        type="range"
+                        class="form-range"
+                        id="vigorousRange"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col text-end">
+                  <button class="btn btn-primary">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      function showManual() {}
+    </script>
+  </body>
+</html>

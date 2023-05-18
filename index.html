@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthHub</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row my-4 border-bottom">
+        <div class="col-2">
+          <img src="img/healthub-logo.png" class="img-fluid" alt="HealthHub" />
+        </div>
+        <div class="col-10 text-end pb-2">
+          Logged in as:
+          <a href="#" class="btn btn-secondary btn-sm">Dr. G. Horvath</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="card p-4 text-center bg-light">
+            <h2>New CT Scan Assessment</h2>
+            <p>
+              Create a CT scan assessment for a
+              <strong>new patient.</strong> Evaluate if a patient needs a CT
+              scan and which CT locations are free at which dates
+            </p>
+            <p>
+              <a href="new-assessment.html" class="btn btn-primary"
+                >New Assessment</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="card p-4 text-center bg-light">
+            <h2>Existing Assessments</h2>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Filter by name or address"
+                aria-label="filterInput"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-primary"
+                type="button"
+                id="button-addon2"
+              >
+                Filter
+              </button>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Risk Score</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">CT Date</th>
+                  <th scope="col">Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Gizella</td>
+                  <td>Mészáros</td>
+                  <td><span class="badge-danger">8</span></td>
+                  <td>Lorem Ipsum</td>
+                  <td>lorem@ipsum.dolor</td>
+                  <td>12. 06. 2023</td>
+                  <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jázmin</td>
+                  <td>Magyar</td>
+                  <td>123 123 123</td>
+                  <td>Lorem Ipsum</td>
+                  <td>lorem@ipsum.dolor</td>
+                  <td>14. 06. 2023</td>
+                  <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Bendegúz</td>
+                  <td>Faragó</td>
+                  <td>123 123 123</td>
+                  <td>Lorem Ipsum</td>
+                  <td>lorem@ipsum.dolor</td>
+                  <td>18. 07. 2023</td>
+                  <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Bendegúz</td>
+                  <td>Faragó</td>
+                  <td>123 123 123</td>
+                  <td>Lorem Ipsum</td>
+                  <td>lorem@ipsum.dolor</td>
+                  <td>22. 07. 2023</td>
+                  <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
