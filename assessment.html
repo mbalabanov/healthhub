@@ -645,10 +645,20 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="text-start alert alert-danger">
+                  <div class="text-center alert alert-danger">
                     <p>
                       This AI generated risk score is not a replacement for the
                       medical assessment of a healthcare professional.
+                    </p>
+                    <p>
+                      If you do not agree with the AI output:
+                      <button
+                        class="btn btn-sm btn-outline-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#wrongAIReport"
+                      >
+                        Report AI Error
+                      </button>
                     </p>
                   </div>
                   <h2>Doctor's Assessment</h2>
@@ -740,6 +750,63 @@
               data-bs-dismiss="modal"
             >
               Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="wrongAIReport"
+      tabindex="-1"
+      aria-labelledby="wrongAIReportLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="wrongAIReportLabel">
+              Report Wrong AI Output
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              You can report a mistake or inaccuracy made by the AI. This will
+              help us to improve the AI in the future.
+            </p>
+            <p>Description of AI Error:</p>
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Write a description of AI error"
+                id="floatingTextarea2"
+                style="height: 100px"
+              ></textarea>
+              <label for="floatingTextarea2">Description</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Submit
             </button>
           </div>
         </div>

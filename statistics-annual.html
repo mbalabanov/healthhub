@@ -70,9 +70,19 @@
 
     <div class="container">
       <div class="row">
-        <div class="col card p-4">
-          <h1>CT Scan Statistics</h1>
-
+        <div class="col card p-4 bg-light">
+          <h1 class="text-center">Annual CT Scan Statistics</h1>
+          <p>
+            Transparency of data encourages change. By exposing the usage and
+            availability of CT scanners, the stakeholders can see which areas
+            need to be improved. It shows the trends and which purchases will
+            become necessary to meet the demand.
+          </p>
+          <p>
+            As can be seen in the chart, the trend is that the waiting times
+            have increased drastically. Therefore, it is necessary to
+            requisition more CT scanners.
+          </p>
           <div id="plot"></div>
           <div id="card" class="alert alert-warning"></div>
         </div>
@@ -109,8 +119,8 @@
 
         var card = document.getElementById("card");
 
-        function displayValue(value) {
-          card.innerHTML = `Average days patients : <strong>${value}</strong>`;
+        function displayValue(value, year) {
+          card.innerHTML = `<div class="row"><div class="col-6 text-center">Patients' average days waited: <span class="badge text-bg-primary">${value}</span></div><div class="col-6 text-center">In year: <span class="badge text-bg-success">${year}</span></div></div>`;
         }
 
         function clearCard() {
@@ -123,7 +133,7 @@
           var pointData = data.points[0];
           var year = pointData.x;
           var waitingTime = pointData.y;
-          displayValue(waitingTime);
+          displayValue(waitingTime, year);
         });
 
         // Initialize the card

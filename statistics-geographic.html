@@ -79,25 +79,33 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1>CT Geographic Data</h1>
-          <p>
-            Click on any of the four cities for the number of patients scanned
-            and CT scanners available in
-            <span class="badge text-bg-primary">2022</span>
-          </p>
-          <div id="map"></div>
-          <div class="row mt-2">
-            <div class="col-6">
-              Annual Patients Scanned:
-              <span id="card1" class="badge text-bg-primary"
-                >Select a City</span
-              >
-            </div>
-            <div class="col-6">
-              Number of CT Scan Devices:
-              <span id="card2" class="badge text-bg-success"
-                >Select a City</span
-              >
+          <div class="card bg-light p-4">
+            <h1>CT Geographic Data</h1>
+            <p>
+              Click on any of the four cities for the number of patients scanned
+              and CT scanners available in
+              <span class="badge text-bg-primary">2022</span>
+            </p>
+            <p>
+              Transparency of data encourages change. By exposing the usage and
+              availability of CT scanners, the stakeholders can see which areas
+              need to be improved. It shows the trends and which purchases will
+              become necessary to meet the demand.
+            </p>
+            <div id="map" class="rounded"></div>
+            <div class="row mt-2 alert alert-warning">
+              <div class="col-6">
+                Annual Patients Scanned:
+                <span id="card1" class="badge text-bg-primary"
+                  >Select a City</span
+                >
+              </div>
+              <div class="col-6">
+                Number of CT Scan Devices:
+                <span id="card2" class="badge text-bg-success"
+                  >Select a City</span
+                >
+              </div>
             </div>
           </div>
         </div>
